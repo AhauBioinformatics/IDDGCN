@@ -7,7 +7,6 @@
 - [System Requirements](#system-requirements)
 - [Datasets](#datasets)
 - [Run IDDGCN](#run-iddgcn)
-- [Acknowledgements](#acknowledgements)
 - [References](#References)
 
 ## Framework
@@ -56,7 +55,6 @@ python explanation/explaiNE.py
 ```markdown
 python explanation/eval_test.py
 ```
-## Acknowledgements
 
 ## References
 [^1]:Wagner A H, Walsh B, Mayfield G, et al. A harmonized meta-knowledgebase of clinical interpretations of somatic genomic variants in cancer[J]. Nature genetics, 2020, 52(4): 448-457.
