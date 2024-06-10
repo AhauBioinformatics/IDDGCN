@@ -38,21 +38,21 @@ In and folders, we have full data with two genes-specific test sets, which are u
 
 To train IDDGCN and evaluate results, follow these steps:
 
-1. **Training**: Run `IDDGCN.py` in the `prediction_code` folder to train the IDDGCN model. You can run this step to train the model or directly proceed to step two to see the evaluation results.
+1. **Model Training**: Run `IDDGCN.py` in the `prediction_code` folder to train the IDDGCN model. You can run this step to train the model or directly proceed to step two to see the evaluation results.
 ```markdown
 python prediction_code/IDDGCN.py
 ```
-2. **Evaluation**: Run `IDDGCN_eval.py` in the `prediction_code` folder to evaluate the prediction results.
+2. **Model Evaluation**: Run `IDDGCN_eval.py` in the `prediction_code` folder to evaluate the prediction results.
 ```markdown
 python prediction_code/IDDGCN_eval.py
 ```
 3. **Ground Truth Construction**: You can use `ground_truth` in the `explanation` folder to construct ground truth, or directly use the pre-constructed `gt_all.csv` in the `explanation/data` folder.
-4. **Explanation**: Directly run `GnnExplainer` and `explaiNE` in the `explanation` folder to explain the prediction results.
+4. **Result Explanation**: Directly run `GnnExplainer` and `explaiNE` in the `explanation` folder to explain the prediction results.
 ```markdown
 python explanation/GnnExplainer.py
 python explanation/explaiNE.py
 ```
-5. **Evaluation of Explanation Models**: Run `eval_test.py` in the `explanation` folder to evaluate the explanation models.  
+5. **Explanation Model Evaluation**: Run `eval_test.py` in the `explanation` folder to evaluate the explanation models.  
 ```markdown
 python explanation/eval_test.py
 ```
