@@ -1,6 +1,6 @@
 # Interpretable dynamic directed graph convolutional network（IDDGCN） on mutation-driven drug reponse prediction
 
-`IDDGCN` uses directed graphs to distinguish between sensitivity and resistance relationships, and dynamically updating the weights of these relationships to reflect the specific interactions of different nodes. It also applied interpretability models to our prediction framework and proposed a method for constructing ground truth based on drug response relationships for evaluation. 
+`IDDGCN` uses directed graphs to distinguish between sensitivity and resistance relationships, and dynamically updating the weights of these relationships to reflect the specific interactions of different nodes. It also applied interpretability models to prediction framework and proposed a method for constructing ground truth based on drug response relationships for evaluation. 
 
 ## Table of Contents
 - [Framework](#framework)
