@@ -35,8 +35,6 @@ In and folders, we have full data with two genes-specific test sets, which are u
 
 ## Run IDDGCN
 
-To train IDDGCN and evaluate results, follow these steps:
-
 1. **Model Training**: Run `IDDGCN.py` in the `prediction_code` folder to train the IDDGCN model. You can run this step to train the model or directly proceed to step two to see the evaluation results.
 ```markdown
 python prediction_code/IDDGCN.py
