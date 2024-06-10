@@ -22,7 +22,6 @@ X_train = pd.read_csv(f"../data/data_new_KRAS/mode{mode}_fold{fold}_X_train.csv"
 X_test_pos = pd.read_csv(f"../data/data_new_KRAS/mode{mode}_fold{fold}_X_test.csv", header=0, index_col=None)
 num_entities = 845
 
-# 读取负样本
 X_test_neg = pd.read_csv(f'../data/data_new_KRAS/mode{mode}_fold{fold}_neg_X_test.csv', header=0, index_col=0)
 X_test_neg.columns = X_test_pos.columns
 X_test = pd.concat([X_test_pos, X_test_neg], axis=0)
@@ -83,14 +82,14 @@ def evaluate_model(rule, X_test, X_test_pos, rel2idx, threshold):
     prec, reca, _ = precision_recall_curve(np.array(y_true), np.array(y_prob))
     aupr = auc(reca, prec)
 
-    print(f' -----------relation{rule}\naccuracy:{acc:.4f}')
-    print(f'tp:{tp} | tn:{tn} | fp:{fp} | fn:{fn} | recall:{recall:.4f} | precision:{precision:.4f} | specificity:{specificity:.4f} | f1:{f1:.4f}')
-    print(f'roc_auc:{roc_auc:.4f} | aupr:{aupr:.4f}\n')
+    # print(f' -----------relation{rule}\naccuracy:{acc:.4f}')
+    # print(f'tp:{tp} | tn:{tn} | fp:{fp} | fn:{fn} | recall:{recall:.4f} | precision:{precision:.4f} | specificity:{specificity:.4f} | f1:{f1:.4f}')
+    # print(f'roc_auc:{roc_auc:.4f} | aupr:{aupr:.4f}\n')
 
 for rule in RULES:
     evaluate_model(rule, X_test, X_test_pos, rel2idx, threshold)
 
-# 计算01混合的指标
+
 rule_indices0 = X_test[0, :, 1] == rel2idx[0]
 rule_indices1 = X_test[0, :, 1] == rel2idx[1]
 rule_indices = np.logical_or(rule_indices0, rule_indices1)
