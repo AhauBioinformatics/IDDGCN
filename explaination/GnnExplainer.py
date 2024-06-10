@@ -1,7 +1,7 @@
 import tensorflow as tf
 import numpy as np
 import sys
-sys.path.append('../latest/code/')
+sys.path.append('../prediction code/')
 import IDDGCN
 import random as rn
 import utils1
@@ -106,7 +106,7 @@ if __name__ == '__main__':
 
         with strategy.scope():
 
-            all_feature_matrix = pd.read_csv(r"../data/feature_all_248_newgene.csv", header=None)
+            all_feature_matrix = pd.read_csv(r"../data/feature_all_248.csv", header=None)
 
             model = IDDGCN.get_RGCN_Model(
                 num_entities=NUM_ENTITIES,
@@ -119,7 +119,7 @@ if __name__ == '__main__':
                 fold=fold
             )
 
-            model.load_weights(os.path.join(f'../data/weights/new16180_1174_gcn_28_1754/mode0_fold{fold}_epoch3000_learnRate0.001_batchsize100_embdim64_weight.h5'))
+            model.load_weights(os.path.join(f'../data/weights/IDDGCN_normal/mode0_fold{fold}_epoch3000_learnRate0.001_batchsize100_embdim64_weight.h5'))
             optimizer = tf.keras.optimizers.Adam(learning_rate=LEARNING_RATE)
             init_value = tf.random.normal(
                     (1,NUM_ENTITIES,NUM_ENTITIES),

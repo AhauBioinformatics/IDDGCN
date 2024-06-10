@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 
 for fold in range(4,5):
     test_df = pl.read_csv(f'../data/mode0_fold{fold}_X_test.csv').to_pandas()
-    gt_all = pl.read_csv(f'data/gt_all_16180_1174.csv').to_pandas().dropna(how='all')
+    gt_all = pl.read_csv(f'data/gt_all.csv').to_pandas().dropna(how='all')
 
     print(f'This is fold{fold},the shape of the raw GT is{gt_all.shape}')
     # Match the corresponding gt for the test set triplet
@@ -32,19 +32,19 @@ for fold in range(4,5):
     plt.figure(figsize=(10, 12))
     plt.bar(frequency.index, frequency.values, color='blue', alpha=0.6, label='Frequency')
 
-    # 添加折线图
-    plt.plot(frequency.index, frequency.values, color='yellow', marker='o', linestyle='-', linewidth=2, label='Trend')
-
-    plt.xlabel('Number of gt', fontsize=14)
-    plt.xticks(rotation=45, fontsize=12)
-    plt.yticks(fontsize=12)
-    plt.subplots_adjust(top=0.9)
-    plt.ylabel('Frequency', fontsize=14)
-    plt.title('Distribution of explain_triplets Number', fontsize=12)
-    plt.legend()
-    plt.savefig(f'data/fold{fold}_plot.png', dpi=300, bbox_inches='tight')
-    # plt.show()
-    print('Converting a rowed gt to an ndarray list triplet......')
+    # # 添加折线图
+    # plt.plot(frequency.index, frequency.values, color='yellow', marker='o', linestyle='-', linewidth=2, label='Trend')
+    #
+    # plt.xlabel('Number of gt', fontsize=14)
+    # plt.xticks(rotation=45, fontsize=12)
+    # plt.yticks(fontsize=12)
+    # plt.subplots_adjust(top=0.9)
+    # plt.ylabel('Frequency', fontsize=14)
+    # plt.title('Distribution of explain_triplets Number', fontsize=12)
+    # plt.legend()
+    # plt.savefig(f'data/fold{fold}_plot.png', dpi=300, bbox_inches='tight')
+    # # plt.show()
+    # print('Converting a rowed gt to an ndarray list triplet......')
 
     # The GT arranged by row is converted into an NDarray list triplet
     gt_filtered_np = gt_filtered.iloc[:, 3:-1].to_numpy()

@@ -111,7 +111,7 @@ def main():
     column_names = ['obj', 'rel', 'sbj'] + [f'GT_{i}' for i in range(1, max_columns-2)]
 
     ground_truth_df = pd.DataFrame(ground_truth_rows, columns=column_names)
-    ground_truth_df.to_csv('data/gt_all_16180_1174.csv', index=False)
+    ground_truth_df.to_csv('data/gt_all.csv', index=False)
 
 if __name__ == "__main__":
     main()
