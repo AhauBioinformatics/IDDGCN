@@ -57,4 +57,4 @@ python explanation/eval_test.py
 ```
 
 ## References
-[^1]:Wagner A H, Walsh B, Mayfield G, et al. A harmonized meta-knowledgebase of clinical interpretations of somatic genomic variants in cancer[J]. Nature genetics, 2020, 52(4): 448-457.(https://www.nature.com/articles/s41588-020-0614-9)
+[^1]:Wagner A H, Walsh B, Mayfield G, et al. A harmonized meta-knowledgebase of clinical interpretations of somatic genomic variants in cancer[J]. Nature genetics, 2020, 52(4): 448-457.
