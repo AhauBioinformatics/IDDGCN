@@ -47,7 +47,7 @@ python prediction_code/IDDGCN.py
 python prediction_code/IDDGCN_eval.py
 ```
 3. **Ground Truth Construction**: You can use `ground_truth` in the `explanation` folder to construct ground truth, or directly use the pre-constructed `gt_all.csv` in the `explanation/data` folder.
-4. **Result Explanation**: Directly run `GnnExplainer` and `explaiNE` in the `explanation` folder to explain the prediction results.
+4. **Run Explanation Models**: Directly run `GnnExplainer` and `explaiNE` in the `explanation` folder to explain the prediction results.
 ```markdown
 python explanation/GnnExplainer.py
 python explanation/explaiNE.py
