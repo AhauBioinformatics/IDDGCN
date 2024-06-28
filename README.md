@@ -19,10 +19,11 @@ tensorflow>=2.7.0
 scipy>=1.7.3
 scikit-learn>= 0.22.1
 numpy>= 1.21.6
-pandas>=1.3.5
+pandas>=1.1.5
 h5py>=3.8.0
 openpyxl>=3.1.2
 PubChemPy>=1.0.4
+tqdm>=4.66.1
 ```
 
 ## Datasets
