@@ -76,10 +76,10 @@ def construct_ground_truth(dc_row, dd, cc, dc):
     return ground_truth_data
 
 def load_and_preprocess_data():
-    dc = pd.read_csv('../data/triplets_dc.csv')
+    dc = pd.read_csv('../datasets/prediction_datasets/triplets_dc.csv')
     # dc = dc.sample(frac=0.008, random_state=42)
-    cc = pd.read_csv('../data/mu_similar0.97.csv')
-    dd = pd.read_csv('../data/drug_similar0.78.csv')
+    cc = pd.read_csv('../datasets/prediction_datasets/mu_similar0.97.csv')
+    dd = pd.read_csv('../datasets/prediction_datasets/drug_similar0.78.csv')
 
     dc.columns = ['mu', 'rel', 'drug']
     cc.columns = ['mu1', 'rel', 'mu2']
@@ -109,7 +109,7 @@ def main():
     column_names = ['obj', 'rel', 'sbj'] + [f'GT_{i}' for i in range(1, max_columns-2)]
 
     ground_truth_df = pd.DataFrame(ground_truth_rows, columns=column_names)
-    ground_truth_df.to_csv('data/gt_all.csv', index=False)
+    ground_truth_df.to_csv('../datasets/explanation_datasets/gt_all.csv', index=False)
 
 if __name__ == "__main__":
     main()

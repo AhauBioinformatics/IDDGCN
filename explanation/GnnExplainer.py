@@ -97,8 +97,8 @@ if __name__ == '__main__':
     THRESHOLD = 0.2
 
     for fold in range(4, 5):
-        train2idx = pd.read_csv(fr'../data/mode0_fold{fold}_X_train.csv', header=0, dtype=int).values
-        test2idx = pd.read_csv(fr'data/test_filtered_fold{fold}.csv', header=0, dtype=int).values
+        train2idx = pd.read_csv(fr'../datasets/prediction_datasets/mode0_fold{fold}_X_train.csv', header=0, dtype=int).values
+        test2idx = pd.read_csv(fr'../datasets/explanation_datasets/test_filtered_fold{fold}.csv', header=0, dtype=int).values
 
         ALL_INDICES = tf.reshape(tf.range(0, NUM_ENTITIES, 1, dtype=tf.int64), (1, -1))
 
@@ -106,7 +106,7 @@ if __name__ == '__main__':
         print(f'Number of devices: {strategy.num_replicas_in_sync}')
 
         with strategy.scope():
-            all_feature_matrix = pd.read_csv(r"../data/feature_all_248.csv", header=None)
+            all_feature_matrix = pd.read_csv(r"../datasets/prediction_datasets/feature_all_248.csv", header=None)
 
             model = IDDGCN.get_IDDGCN_Model(
                 num_entities=NUM_ENTITIES,
@@ -118,7 +118,7 @@ if __name__ == '__main__':
                 mode=0,
                 fold=fold
             )
-            model.load_weights(os.path.join(f'../data/weights/IDDGCN_normal/mode0_fold{fold}_epoch5000_learnRate0.001_batchsize100_embdim64_weight.h5'))
+            model.load_weights(os.path.join(f'../datasets/prediction_datasets/weights/IDDGCN_normal/mode0_fold{fold}_epoch5000_learnRate0.001_batchsize100_embdim64_weight.h5'))
             optimizer = tf.keras.optimizers.Adam(learning_rate=LEARNING_RATE)
             init_value = tf.random.normal(
                 (1, NUM_ENTITIES, NUM_ENTITIES),
@@ -166,5 +166,5 @@ if __name__ == '__main__':
         print(f'learning_rate: {LEARNING_RATE}')
         print(f'threshold {THRESHOLD}')
 
-        np.savez(f'data/GNNExplainer_preds_fold4.npz', preds=out_preds, scores=out_scores)
+        np.savez(f'../datasets/explanation_datasets/GNNExplainer_preds_fold4.npz', preds=out_preds, scores=out_scores)
         print('Done.')

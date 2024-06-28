@@ -4,8 +4,8 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 for fold in range(4,5):
-    test_df = pl.read_csv(f'../data/mode0_fold{fold}_X_test.csv').to_pandas()
-    gt_all = pl.read_csv(f'data/gt_all.csv').to_pandas().dropna(how='all')
+    test_df = pl.read_csv(f'../datasets/prediction_datasets/mode0_fold{fold}_X_test.csv').to_pandas()
+    gt_all = pl.read_csv(f'../datasets/explanation_datasets/gt_all.csv').to_pandas().dropna(how='all')
 
     print(f'This is fold{fold},the shape of the raw GT is{gt_all.shape}')
     # Match the corresponding gt for the test set triplet
@@ -38,5 +38,5 @@ for fold in range(4,5):
     print('The NAN value is being removed……')
     gt_fold = [[tri.astype(float).tolist() for tri in gt if not np.any(np.isnan(tri.astype(float)))] for gt in gt_fold]
 
-    np.savez(f'data/gt_filtered_fold{fold}.npz',result=np.array(gt_fold, dtype=object))
-    test_filtered.to_csv(f'data/test_filtered_fold{fold}.csv',index=False)
+    np.savez(f'../datasets/explanation_datasets/gt_filtered_fold{fold}.npz',result=np.array(gt_fold, dtype=object))
+    test_filtered.to_csv(f'../datasets/explanation_datasets/test_filtered_fold{fold}.csv',index=False)

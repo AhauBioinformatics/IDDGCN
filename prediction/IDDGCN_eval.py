@@ -18,12 +18,12 @@ OUTPUT_DIM = EMBEDDING_DIM
 
 mode = 0
 fold = 4
-X_train = pd.read_csv(f"../data/mode{mode}_fold{fold}_X_train.csv")
-X_test_pos = pd.read_csv(f"../data/mode{mode}_fold{fold}_X_test.csv", header=0, index_col=None)
+X_train = pd.read_csv(f"../datasets/prediction_datasets/mode{mode}_fold{fold}_X_train.csv")
+X_test_pos = pd.read_csv(f"../datasets/prediction_datasets/mode{mode}_fold{fold}_X_test.csv", header=0, index_col=None)
 num_entities = 845
 
 
-X_test_neg = pd.read_csv(f'../data/mode{mode}_fold{fold}_neg_X_test.csv', header=0, index_col=0)
+X_test_neg = pd.read_csv(f'../datasets/prediction_datasets/mode{mode}_fold{fold}_neg_X_test.csv', header=0, index_col=0)
 X_test_neg.columns = X_test_pos.columns
 X_test = pd.concat([X_test_pos, X_test_neg], axis=0)
 
@@ -31,7 +31,7 @@ NUM_ENTITIES = 845
 NUM_RELATIONS = 4
 ALL_INDICES = np.arange(NUM_ENTITIES).reshape(1, -1)
 # trained_embeddings = np.load(f'../data/mode{mode}_fold{fold}_learning_rate0.001_final_embeddings.npy')
-all_feature_matrix='../data/feature_all_248.csv'
+all_feature_matrix='../datasets/prediction_datasets/feature_all_248.csv'
 model = IDDGCN.get_IDDGCN_Model(
     num_entities=NUM_ENTITIES,
     num_relations=NUM_RELATIONS,
@@ -43,7 +43,7 @@ model = IDDGCN.get_IDDGCN_Model(
     fold=fold
 )
 
-model.load_weights(os.path.join( '..', 'data', 'weights', 'IDDGCN_normal',
+model.load_weights(os.path.join( '..', 'datasets','prediction_datasets', 'weights', 'IDDGCN_normal',
                                 f'mode{mode}_fold{fold}_epoch5000_learnRate0.001_batchsize100_embdim{EMBEDDING_DIM}_weight.h5'))
 
 ADJACENCY_DATA = tf.concat([X_train, X_test_pos], axis=0)

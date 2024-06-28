@@ -3,8 +3,8 @@ import numpy as np
 from sklearn.metrics.pairwise import euclidean_distances
 from sklearn.metrics.pairwise import cosine_similarity
 EMBEDDING_DIM = 64
-x_mu = pd.read_csv(r"..\data\Mutation_feature_248.csv",header=None,index_col=0)
-x_drug = pd.read_csv("..\data\drug_feature_248.csv",header=None,index_col=0)
+x_mu = pd.read_csv(r"..\datasets\prediction_datasets\Mutation_feature_248.csv",header=None,index_col=0)
+x_drug = pd.read_csv("..\datasets\prediction_datasets\drug_feature_248.csv",header=None,index_col=0)
 x_drug=x_drug.dropna()
 def caculat_distance(node_feat):
 
@@ -31,7 +31,7 @@ def creat_similar_mat(mat, threshold):
 
 def save_csv(similar_mat,file_name):
     similar_mat = pd.DataFrame(similar_mat)
-    similar_mat.to_csv(f'../data/{file_name}', index=False, header=False)
+    similar_mat.to_csv(f'..\datasets\prediction_datasets\/{file_name}', index=False, header=False)
 def simat2triple(mat,relation,start):
     triples = []
     num_nodes = mat.shape[0]

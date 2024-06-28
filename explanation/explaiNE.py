@@ -55,11 +55,11 @@ if __name__ == '__main__':
     ALL_INDICES = tf.reshape(tf.range(0, NUM_ENTITIES, 1, dtype=tf.int64), (1, -1))
 
     for fold in range(4, 5):
-        train2idx = pd.read_csv(fr'../data/mode0_fold{fold}_X_train.csv', header=0, dtype=int).values
-        test2idx = pd.read_csv(fr'data/test_filtered_fold{fold}.csv', header=0, dtype=int).values
+        train2idx = pd.read_csv(fr'../datasets/prediction_datasets/mode0_fold{fold}_X_train.csv', header=0, dtype=int).values
+        test2idx = pd.read_csv(fr'../datasets/explanation_datasets/test_filtered_fold{fold}.csv', header=0, dtype=int).values
 
         ADJACENCY_DATA = tf.concat([train2idx, test2idx], axis=0)
-        all_feature_matrix = pd.read_csv(r"../data/feature_all_248.csv", header=None)
+        all_feature_matrix = pd.read_csv(r"../datasets/prediction_datasets/feature_all_248.csv", header=None)
 
         model = IDDGCN.get_IDDGCN_Model(
             num_entities=NUM_ENTITIES,
@@ -72,7 +72,7 @@ if __name__ == '__main__':
             fold=fold
         )
 
-        model.load_weights(os.path.join(f'../data/weights/new16180_1174_gcn_28_1754/mode0_fold{fold}_epoch5000_learnRate0.001_batchsize100_embdim64_weight.h5'))
+        model.load_weights(os.path.join(f'../datasets/prediction_datasets/weights/new16180_1174_gcn_28_1754/mode0_fold{fold}_epoch5000_learnRate0.001_batchsize100_embdim64_weight.h5'))
 
         ADJ_MATS = utils1.get_adj_mats(ADJACENCY_DATA, NUM_ENTITIES, NUM_RELATIONS)
 
@@ -98,6 +98,6 @@ if __name__ == '__main__':
         preds = np.array(pred_exps)
         scores = np.array(score_exps)
 
-        np.savez(f'data/explaiNE_preds_fold{fold}.npz', preds=preds, scores=scores)
+        np.savez(f'../datasets/explanation_datasets/explaiNE_preds_fold{fold}.npz', preds=preds, scores=scores)
 
         print('Done.')

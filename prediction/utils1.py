@@ -434,7 +434,6 @@ def get_adj_mats(data, num_entities, num_relations):
             #         tf.gather(data_i,[0,2],axis=1),
             #         tf.gather(data_i,[2,0],axis=1)],axis=0)
             indices = tf.gather(data_i, [0, 2], axis=1)
-            # 即抽出实体的id
             indices = tf.py_function(distinct, [indices], indices.dtype)
             indices = tf.dtypes.cast(indices, tf.int64)
             values = tf.ones((indices.shape[0]))
@@ -453,10 +452,10 @@ def get_adj_mats(data, num_entities, num_relations):
 
 
 def get_negative_triples(head, rel, tail, num_entities, seed):
-    cond = tf.random.uniform(tf.shape(head), 0, 2, dtype=tf.int64, seed=seed)  # 相当于是生成掩码
+    cond = tf.random.uniform(tf.shape(head), 0, 2, dtype=tf.int64, seed=seed)
     rnd = tf.random.uniform(tf.shape(head), 0, num_entities - 1, dtype=tf.int64, seed=seed)
 
-    neg_head = tf.where(cond == 1, head, rnd)  # 条件为真返回head，为假返回rnd
+    neg_head = tf.where(cond == 1, head, rnd)
     neg_tail = tf.where(cond == 1, rnd, tail)
     return neg_head, neg_tail
 

@@ -6,11 +6,11 @@ import csv
 fold = 4
 top = 5
 exp_num = 10
-gt_fold = np.load(f'data/gt_filtered_fold{fold}.npz', allow_pickle=True)['result']
+gt_fold = np.load(f'../datasets/explanation_datasets/gt_filtered_fold{fold}.npz', allow_pickle=True)['result']
 
 # Load predictions for both GNNExplainer and ExplainNE
-gnnexplainer_preds = np.load(f'data/GNNExplainer_preds_fold{fold}.npz', allow_pickle=True)['preds']
-explaine_preds = np.load(f'data/explaiNE_preds_fold{fold}.npz', allow_pickle=True)['preds']
+gnnexplainer_preds = np.load(f'../datasets/explanation_datasets/GNNExplainer_preds_fold{fold}.npz', allow_pickle=True)['preds']
+explaine_preds = np.load(f'../datasets/explanation_datasets/explaiNE_preds_fold{fold}.npz', allow_pickle=True)['preds']
 
 def calculate_metrics(preds_set, preds_flip_set, gt_fold_set):
     preds_list = list(preds_set)

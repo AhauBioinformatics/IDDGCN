@@ -125,7 +125,7 @@ class IDDGCN_Model(tf.keras.Model):
         all_indices, pos_head, rel, pos_tail, *adj_mats = data[0]
         y_pos_true = data[1]
 
-        X_train_neg = np.load(f'../data/mode{self.mode}_fold{self.fold}_X_train_neg.npy')
+        X_train_neg = np.load(f'../datasets/prediction_datasets/mode{self.mode}_fold{self.fold}_X_train_neg.npy')
 
         num_samples = X_train_neg.shape[1]
 
@@ -309,13 +309,13 @@ if __name__ == '__main__':
                 NUM_ENTITIES = 845
                 NUM_RELATIONS = 4
 
-                resopnse_pairs = pd.read_csv("../data/triplets_dc.csv", header=0)
+                resopnse_pairs = pd.read_csv("../datasets/prediction_datasets/triplets_dc.csv", header=0)
                 resopnse_pairs = shuffle(resopnse_pairs, random_state=24)
-                mu_similar_triples = pd.read_csv(f"../data/mu_similar0.97.csv", header=0)
+                mu_similar_triples = pd.read_csv(f"../datasets/prediction_datasets/mu_similar0.97.csv", header=0)
 
-                drug_similar_triples = pd.read_csv(f"../data/drug_similar0.78.csv", header=0)
+                drug_similar_triples = pd.read_csv(f"../datasets/prediction_datasets/drug_similar0.78.csv", header=0)
 
-                X_train_neg = pd.read_csv('../data/negative_dc_28_1754.csv', header=0)
+                X_train_neg = pd.read_csv('../datasets/prediction_datasets/negative_dc_28_1754.csv', header=0)
                 # ----------------------------------------------------
 
                 resopnse_pairs.columns = ['obj', 'rel', 'sbj']
@@ -335,7 +335,7 @@ if __name__ == '__main__':
                         X_train_response, X_test_response = train_test_splits[fold]
                         neg_X_train, neg_X_test = neg_train_test_splits[fold]
                         neg_X_test_filtered = neg_X_test[neg_X_test['rel'].isin([0, 1])]
-                        neg_X_test_filtered.to_csv(f'../data/mode{mode}_fold{fold}_neg_X_test.csv',index_label=None)
+                        neg_X_test_filtered.to_csv(f'../datasets/prediction_datasets/mode{mode}_fold{fold}_neg_X_test.csv',index_label=None)
 
 
 
@@ -359,8 +359,8 @@ if __name__ == '__main__':
                         X_test = pd.concat([X_test_triple, syn_X_test_triple],axis=0).astype(np.int64)
                         # X_test = X_test_triple.astype(np.int64)
 
-                        X_train.to_csv(f"../data/mode{mode}_fold{fold}_X_train.csv", index=False)
-                        X_test.to_csv(f"../data/mode{mode}_fold{fold}_X_test.csv", index=False)
+                        X_train.to_csv(f"../datasets/prediction_datasets/mode{mode}_fold{fold}_X_train.csv", index=False)
+                        X_test.to_csv(f"../datasets/prediction_datasets/mode{mode}_fold{fold}_X_test.csv", index=False)
 
                         # ------------------------------------------------------node_representation
                         all_feature_matrix = pd.read_csv(f"../data/feature_all_248.csv", header=None,index_col=0)
@@ -370,7 +370,7 @@ if __name__ == '__main__':
                         X_train = np.expand_dims(X_train, axis=0)
 
                         X_train_neg = np.expand_dims(neg_X_train, axis=0)
-                        np.save(f'../data/mode{mode}_fold{fold}_X_train_neg.npy', X_train_neg)
+                        np.save(f'../datasets/prediction_datasets/mode{mode}_fold{fold}_X_train_neg.npy', X_train_neg)
 
                         ALL_INDICES = np.arange(NUM_ENTITIES).reshape(1, -1)
 
@@ -393,7 +393,7 @@ if __name__ == '__main__':
                         )
 
 
-                        save_path_template = os.path.join('..', 'data', 'weights', 'IDDGCN_normal','mode{mode}_fold{fold}_epoch{epoch}_learnRate{learning_rate}_batchsize{batch_size}_embdim{EMBEDDING_DIM}_weight.h5')
+                        save_path_template = os.path.join('..', 'datasets', 'prediction_datasets','weights', 'IDDGCN_normal','mode{mode}_fold{fold}_epoch{epoch}_learnRate{learning_rate}_batchsize{batch_size}_embdim{EMBEDDING_DIM}_weight.h5')
                         save_weights_callback = SaveWeightsCallback(save_epochs=save_epochs, save_path_template=save_path_template, mode=mode, fold=fold, learning_rate=LEARNING_RATE, batch_size=BATCH_SIZE, EMBEDDING_DIM=EMBEDDING_DIM)
 
                         history = model.fit(
