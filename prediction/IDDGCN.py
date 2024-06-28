@@ -125,7 +125,7 @@ class IDDGCN_Model(tf.keras.Model):
         all_indices, pos_head, rel, pos_tail, *adj_mats = data[0]
         y_pos_true = data[1]
 
-        X_train_neg = np.load(f'../../data/mode{self.mode}_fold{self.fold}_X_train_neg.npy')
+        X_train_neg = np.load(f'../data/mode{self.mode}_fold{self.fold}_X_train_neg.npy')
 
         num_samples = X_train_neg.shape[1]
 
