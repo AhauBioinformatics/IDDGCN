@@ -8,7 +8,7 @@ top=5
 exp_num=10
 gt_fold = np.load(f'data/gt_filtered_fold{fold}.npz', allow_pickle=True)['result']
 
-explaine_preds = np.load(f'data/GNNExplainer_preds_fold{fold}.npz', allow_pickle=True)['preds']#（3395，5，3）
+explaine_preds = np.load(f'data/GNNExplainer_preds_fold{fold}.npz', allow_pickle=True)['preds']
 
 # explaine_preds = np.load(f'data/explaiNE_preds_fold{fold}.npz', allow_pickle=True)['preds']
 
