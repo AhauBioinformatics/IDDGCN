@@ -63,6 +63,5 @@ python eval_test.py
 ## Citation
 if you use IDDGCN, please cite our paper:"Interpretable Dynamic Directed Graph Convolutional Network for Multi-Relational Prediction of Missense Mutation and Drug Response"[^2]
 ## References
-[^1]:[Wagner A H, Walsh B, Mayfield G, et al. A harmonized meta-knowledgebase of clinical interpretations of somatic genomic variants in cancer. *Nature Genetics*, 2020, 52(4): 448-457](https://www.nature.com/articles/s41588-020-0603-8)
-[^3]: <a href="https://www.nature.com/articles/s41588-020-0603-8" target="_blank">Wagner A H, Walsh B, Mayfield G, et al. A harmonized meta-knowledgebase of clinical interpretations of somatic genomic variants in cancer. *Nature Genetics*, 2020, 52(4): 448-457</a>
+[^1]: <a href="https://www.nature.com/articles/s41588-020-0603-8" target="_blank" rel="noopener noreferrer">Wagner A H, Walsh B, Mayfield G, et al. A harmonized meta-knowledgebase of clinical interpretations of somatic genomic variants in cancer. *Nature Genetics*, 2020, 52(4): 448-457</a>
 [^2]:Qian Gao, Tao Xu, Xiaodi Li, Wanling Gao and Zhenyu Yue*. Interpretable Dynamic Directed Graph Convolutional Network for Multi-Relational Prediction of Missense Mutation and Drug Response, 2024, Submitted.
