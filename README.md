@@ -4,8 +4,7 @@
 
 ## Table of Contents
 - [Framework](#framework)
-- [System Requirements]
-(#system-requirements)
+- [System Requirements](#system-requirements)
 - [Datasets](#datasets)
 - [Run IDDGCN](#run-iddgcn)
 - [References](#References)
