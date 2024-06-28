@@ -27,11 +27,7 @@ PubChemPy>=1.0.4
 
 ## Datasets
 The `datasets` directory contains all the experimental data used in IDDGCN. [MetaKB](https://search.cancervariants.org/#*)[^1].
-In and folders, we have full data with two genes-specific test sets, which are used for model generalization and intragenic experiments. Each subfolder contains the complete data used for the experiments:
-- `datasets/data_new_ABL1` Contains new mutation-drug response data for ABL1 used for generalization experiments.
-- `datasets/data_new_KRAS` Contains new mutation-drug response data for KRAS used for generalization experiments.
-- `datasets/data_single_ABL1` Contains single gene mutation-drug response data for ABL1 used for intragenic experiments.
-- `datasets/data_single_KRAS` Contains single gene mutation-drug response data for KRAS used for intragenic experiments.
+In and folders, we have full data with two genes-specific test sets, which are used for model generalization and intragenic experiments.
 
 ## Run IDDGCN
 
