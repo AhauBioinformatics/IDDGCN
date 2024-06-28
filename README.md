@@ -41,7 +41,7 @@ python prediction/IDDGCN.py
 ```
 2. **Model Evaluation**: Run `IDDGCN_eval.py` in the `prediction_code` folder to evaluate the prediction results.
 ```markdown
-python prediction_code/IDDGCN_eval.py
+python prediction/IDDGCN_eval.py
 ```
 3. **Ground Truth Construction**: You can use `ground_truth` in the `explanation` folder to construct ground truth, or directly use the pre-constructed `gt_all.csv` in the `explanation/data` folder.
 4. **Run Explanation Models**: Directly run `GnnExplainer` and `explaiNE` in the `explanation` folder to explain the prediction results.
