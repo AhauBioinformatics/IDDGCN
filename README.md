@@ -28,7 +28,7 @@ tqdm>=4.66.1
 ```
 
 ## Datasets
-The `data` directory contains all the experimental data used in IDDGCN. [MetaKB](https://search.cancervariants.org/#*)[^1].
+The `datasets` directory contains all the experimental data used in IDDGCN. [MetaKB](https://search.cancervariants.org/#*)[^1].
 In and folders, we have full data with five-fold cross-validation experiment, which are used for model training and evaluation.
 
 ## Run IDDGCN
