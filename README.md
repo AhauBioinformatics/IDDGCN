@@ -37,7 +37,7 @@ In and folders, we have full data with five-fold cross-validation experiment, wh
 cd prediction
 python IDDGCN.py
 ```
-2. **Model Evaluation**: Run `IDDGCN_eval.py` in the `prediction_code` folder to evaluate the prediction results.
+2. **Model Evaluation**: Run `IDDGCN_eval.py` in the `prediction` folder to evaluate the prediction results.
 ```markdown
 cd prediction
 python IDDGCN_eval.py
