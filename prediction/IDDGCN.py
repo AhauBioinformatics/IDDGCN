@@ -292,11 +292,10 @@ if __name__ == '__main__':
     tf.random.set_seed(SEED)
     np.random.seed(SEED)
     rn.seed(SEED)
-    # 网格调参法
     batch_size = [100]
     learning_rate = [0.001]
     embedding_dim = [64]
-    save_epochs = [1,100,500,1000,2000,3000,5000]
+    save_epochs = [5000]
 
     for bs in batch_size:
         for lr in learning_rate:
@@ -331,7 +330,7 @@ if __name__ == '__main__':
                     # train_test_splits = utils1.split_neg_triple_into_folds(resopnse_pairs, num_folds=num_splits, seed=SEED,mode=mode)
                     neg_train_test_splits = utils1.split_neg_triple_into_folds(X_train_neg, num_folds=num_splits, seed=SEED,mode=mode)
 
-                    for fold in range(4,5):
+                    for fold in range(0,5):
 
                         X_train_response, X_test_response = train_test_splits[fold]
                         neg_X_train, neg_X_test = neg_train_test_splits[fold]
@@ -412,7 +411,7 @@ if __name__ == '__main__':
                             callbacks=[save_weights_callback]
                         )
                         entity_embeddings = model.get_layer('entity_embeddings').get_weights()[0]
-                        np.save(f'../data/mode{mode}_fold{fold}_learning_rate0.001_final_embeddings.npy', entity_embeddings)
+                        # np.save(f'../data/mode{mode}_fold{fold}_learning_rate0.001_final_embeddings.npy', entity_embeddings)
                         # filename = f'mode{mode}_fold{fold},{num_splits}_epoch{NUM_EPOCHS}_batchsize{BATCH_SIZE}_embdim{EMBEDDING_DIM}.h5'
                         print('len(X_train_response)',len(X_train_response))
                         print('len(X_train),len(X_test)', len(X_train[0]), len(X_test))

@@ -3,8 +3,8 @@ import numpy as np
 from sklearn.metrics.pairwise import euclidean_distances
 from sklearn.metrics.pairwise import cosine_similarity
 EMBEDDING_DIM = 64
-x_mu = pd.read_csv(r"..\data_single_KRAS\mu_KRAS.csv",header=None,index_col=0)
-x_drug = pd.read_csv("..\data_single_KRAS\drug_KRAS.csv",header=None,index_col=0)
+x_mu = pd.read_csv(r"..\data\Mutation_feature_248.csv",header=None,index_col=0)
+x_drug = pd.read_csv("..\data\drug_feature_248.csv",header=None,index_col=0)
 x_drug=x_drug.dropna()
 def caculat_distance(node_feat):
 
@@ -31,7 +31,7 @@ def creat_similar_mat(mat, threshold):
 
 def save_csv(similar_mat,file_name):
     similar_mat = pd.DataFrame(similar_mat)
-    similar_mat.to_csv(f'../data_single_KRAS/{file_name}', index=False, header=False)
+    similar_mat.to_csv(f'../data/{file_name}', index=False, header=False)
 def simat2triple(mat,relation,start):
     triples = []
     num_nodes = mat.shape[0]
@@ -57,8 +57,8 @@ if np.any(mu_dist_mat < 0) and np.any(drug_dist_mat < 0):
 else:
     print("there are no negative values in the matrix")
 
-threshold = 0.75
-drug_threshold = 0.75
+threshold = 0.97
+drug_threshold = 0.78
 mu_similar_mat = creat_similar_mat(mu_dist_mat, threshold).astype(int)
 drug_similar_mat = creat_similar_mat(drug_dist_mat, drug_threshold).astype(int)
 
