@@ -363,7 +363,7 @@ if __name__ == '__main__':
                         X_test.to_csv(f"../datasets/prediction_datasets/mode{mode}_fold{fold}_X_test.csv", index=False)
 
                         # ------------------------------------------------------node_representation
-                        all_feature_matrix = pd.read_csv(f"../data/feature_all_248.csv", header=None,index_col=0)
+                        all_feature_matrix = pd.read_csv(f"../datasets/prediction_datasets/feature_all_248.csv", header=None,index_col=0)
 
                         ADJ_MATS = utils1.get_adj_mats(X_train.values, NUM_ENTITIES, NUM_RELATIONS)
 
