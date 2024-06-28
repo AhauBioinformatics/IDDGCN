@@ -4,7 +4,7 @@ import os
 import utils1
 import random as rn
 import tensorflow as tf
-import IDDGCN,IDDGCN_newgene
+import IDDGCN
 from sklearn.metrics import confusion_matrix, roc_auc_score, precision_recall_curve, auc
 
 SEED = 123
@@ -32,7 +32,7 @@ NUM_RELATIONS = 4
 ALL_INDICES = np.arange(NUM_ENTITIES).reshape(1, -1)
 # trained_embeddings = np.load(f'../data/mode{mode}_fold{fold}_learning_rate0.001_final_embeddings.npy')
 all_feature_matrix='../data/feature_all_248.csv'
-model = IDDGCN_newgene.get_IDDGCN_Model(
+model = IDDGCN.get_IDDGCN_Model(
     num_entities=NUM_ENTITIES,
     num_relations=NUM_RELATIONS,
     embedding_dim=EMBEDDING_DIM,
@@ -118,6 +118,5 @@ roc_auc = roc_auc_score(y_true, y_prob)
 prec, reca, _ = precision_recall_curve(np.array(y_true), np.array(y_prob))
 aupr = auc(reca, prec)
 
-print(f' -----------relation01\naccuracy:{acc:.4f}')
-print(f'tp:{tp} | tn:{tn} | fp:{fp} | fn:{fn} | recall:{recall:.4f} | precision:{precision:.4f} | specificity:{specificity:.4f}  | f1:{f1:.4f}')
+print(f'tp:{tp} | tn:{tn} | fp:{fp} | fn:{fn} |accuracy:{acc:.4f}| recall:{recall:.4f} | precision:{precision:.4f} | specificity:{specificity:.4f}  | f1:{f1:.4f}')
 print(f'roc_auc:{roc_auc:.4f} | aupr:{aupr:.4f}\n')
