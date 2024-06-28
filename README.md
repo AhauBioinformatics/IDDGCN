@@ -29,8 +29,9 @@ tqdm>=4.66.1
 
 ## Datasets
 The `datasets` directory contains all the experimental data used in IDDGCN. [MetaKB](https://search.cancervariants.org/#*)[^1].
-In and folders, we have full data with five-fold cross-validation experiment, which are used for model training and evaluation.
-
+In and folders, we have full data with five-fold cross-validation experiment for prediction part and for explanation part:
+- `datasets/prediction_datasets` Contains new mutation-drug response data for ABL1 used for generalization experiments.
+- `datasets/explanation_datasets` Contains new mutation-drug response data for ABL1 used for generalization experiments.
 ## Run IDDGCN
 
 1. **Model Training**: Run `IDDGCN.py` in the `prediction` folder to train the IDDGCN model. You can run this step to train the IDDGCN or directly proceed to step two to see the prediction evaluation results.
