@@ -49,7 +49,7 @@ python IDDGCN_eval.py
 cd explanation
 python ground_truth.py
 ```
-4. **Run Explanation Models**: Directly run `GnnExplainer` and `explaiNE` in the `explanation` folder to explain the prediction results, You can run this step to train these explanation models or directly proceed to step five to see the evaluation results.
+4. **Run Explanation Models**: Directly run `GnnExplainer` and `explaiNE` in the `explanation` folder to explain the prediction results. You can run this step to train these explanation models or directly proceed to step five to see the evaluation results.
 ```markdown
 cd explanation
 python GnnExplainer.py
