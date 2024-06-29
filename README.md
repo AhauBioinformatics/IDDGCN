@@ -61,4 +61,4 @@ cd explanation
 python eval_test.py
 ```
 ## Citation
-If you use IDDGCN, please cite our paper:Qian Gao, Tao Xu, Xiaodi Li, Wanling Gao and Zhenyu Yue*. Interpretable Dynamic Directed Graph Convolutional Network for Multi-Relational Prediction of Missense Mutation and Drug Response, 2024, Submitted.
+If you use IDDGCN, please cite our paper: Qian Gao, Tao Xu, Xiaodi Li, Wanling Gao and Zhenyu Yue*. Interpretable Dynamic Directed Graph Convolutional Network for Multi-Relational Prediction of Missense Mutation and Drug Response, 2024, Submitted.
