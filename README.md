@@ -44,7 +44,7 @@ python IDDGCN.py
 cd prediction
 python IDDGCN_eval.py
 ```
-3. **Ground Truth Construction**: You can use `ground_truth.py` in the `explanation` folder to construct ground truth, or directly use the pre-constructed groundtruth `gt_all.csv` in the `explanation/data` folder.
+3. **Ground Truth Construction**: You can use `ground_truth.py` in the `explanation` folder to construct groundtruth, or directly use the pre-constructed groundtruth `gt_all.csv` in the `explanation/data` folder.
 ```markdown
 cd explanation
 python ground_truth.py
