@@ -1,6 +1,6 @@
 # Interpretable Dynamic Directed Graph Convolutional Network (IDDGCN) for Multi-Relational Prediction of Missense Mutation and Drug Response
 
-'IDDGCN' explores the impact of missense mutations on drug responses by employing directed graphs to distinguish the relationships between sensitivity and resistance. It updates the weights of these relationships dynamically, using node features to reflect the specific interactions of different nodes. The model also integrates interpretability frameworks and proposes a method for establishing a reliable groundtruth for the evaluation of interpretability models.
+'IDDGCN' explores the impact of missense mutations on drug responses by employing directed graphs to distinguish the relationships between sensitivity and resistance. It updates the weights of these relationships dynamically, using node features to reflect the specific interactions of different nodes. The model also integrates interpretability frameworks and proposes a method for establishing a reliable groundtruth to evaluate these interpretability models.
 
 ## Table of Contents
 
