@@ -14,7 +14,7 @@
 ![Framework](image/IDDGCN.png)
 
 ## System Requirements
-The source code developed in Python 3.7 using tensorflow  2.7.0. The required python dependencies are given below. IDDGCN is supported for any standard computer and operating system (Windows/macOS/Linux) with enough RAM to run. There is no additional non-standard hardware requirements.
+The source code was developed in Python 3.7 using TensorFlow 2.7.0. The required Python dependencies are listed below. IDDGCN is supported on any standard computer and operating system (Windows/macOS/Linux) with enough RAM to run. There are no additional non-standard hardware requirements.
 ```markdown
 tensorflow>=2.7.0
 scipy>=1.7.3
