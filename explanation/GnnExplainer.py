@@ -166,5 +166,5 @@ if __name__ == '__main__':
         print(f'learning_rate: {LEARNING_RATE}')
         print(f'threshold {THRESHOLD}')
 
-        np.savez(f'../datasets/explanation_datasets/GNNExplainer_preds_fold4.npz', preds=out_preds, scores=out_scores)
+        np.savez(f'../datasets/explanation_datasets/GNNExplainer_preds_fold{fold}.npz', preds=out_preds, scores=out_scores)
         print('Done.')

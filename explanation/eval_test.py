@@ -11,7 +11,7 @@ gt_fold = np.load(f'../datasets/explanation_datasets/gt_filtered_fold{fold}.npz'
 # Load predictions for both GNNExplainer and ExplainNE
 gnnexplainer_preds = np.load(f'../datasets/explanation_datasets/GNNExplainer_preds_fold{fold}.npz', allow_pickle=True)['preds']
 explaine_preds = np.load(f'../datasets/explanation_datasets/explaiNE_preds_fold{fold}.npz', allow_pickle=True)['preds']
-
+cexplainer_preds = np.load(f'../datasets/explanation_datasets/WGNNExplainer_preds_fold{fold}.npz', allow_pickle=True)['preds']
 def calculate_metrics(preds_set, preds_flip_set, gt_fold_set):
     preds_list = list(preds_set)
     preds_flip_list = list(preds_flip_set)
@@ -42,11 +42,11 @@ def compute_metrics_for_method(preds, method_name):
 # Compute metrics for both methods
 gnnexplainer_metrics = compute_metrics_for_method(gnnexplainer_preds, 'GNNExplainer')
 explaine_metrics = compute_metrics_for_method(explaine_preds, 'ExplainNE')
-
+cexplainer_metrics = compute_metrics_for_method(cexplainer_preds, 'CExplainer')
 # Convert to DataFrames
 gnnexplainer_metrics_df = pd.DataFrame(gnnexplainer_metrics, columns=['Precision@5', 'Recall@5', 'F1@5'])
 explaine_metrics_df = pd.DataFrame(explaine_metrics, columns=['Precision@5', 'Recall@5', 'F1@5'])
-
+cexplainer_metrics_df = pd.DataFrame(cexplainer_metrics, columns=['Precision@5', 'Recall@5', 'F1@5'])
 # Calculate averages
 avr_gnnexplainer_prec = gnnexplainer_metrics_df['Precision@5'].mean()
 avr_gnnexplainer_rec = gnnexplainer_metrics_df['Recall@5'].mean()
@@ -55,6 +55,10 @@ avr_gnnexplainer_f1 = gnnexplainer_metrics_df['F1@5'].mean()
 avr_explaine_prec = explaine_metrics_df['Precision@5'].mean()
 avr_explaine_rec = explaine_metrics_df['Recall@5'].mean()
 avr_explaine_f1 = explaine_metrics_df['F1@5'].mean()
+
+avr_cexplainer_prec = cexplainer_metrics_df['Precision@5'].mean()
+avr_cexplainer_rec = cexplainer_metrics_df['Recall@5'].mean()
+avr_cexplainer_f1 = cexplainer_metrics_df['F1@5'].mean()
 
 # Print average results
 print("Average Metrics for GNNExplainer")
@@ -66,3 +70,8 @@ print("\nAverage Metrics for ExplainNE")
 print(f'Total average ExplainNE Precision@5: {avr_explaine_prec:.4f}')
 print(f'Total average ExplainNE Recall@5: {avr_explaine_rec:.4f}')
 print(f'Total average ExplainNE F1@5: {avr_explaine_f1:.4f}')
+
+print("\nAverage Metrics for CExplainer")
+print(f'Total average WGNNExplainer Precision@5: {avr_cexplainer_prec:.4f}')
+print(f'Total average WGNNExplainer Recall@5: {avr_cexplainer_rec:.4f}')
+print(f'Total average WGNNExplainer F1@5: {avr_cexplainer_f1:.4f}')
