@@ -206,7 +206,7 @@ if __name__ == '__main__':
         out_preds = np.array(out_preds, dtype=object)
 
         current_time = int(time.time())
-        np.savez(f'../datasets/explanation_datasets/WGNNExplainer_preds_fold{fold}.npz',preds=out_preds)
+        np.savez(f'../datasets/explanation_datasets/IDDGCN_explain_preds_fold{fold}.npz',preds=out_preds)
 
         duration = time.time()-start_time
 
