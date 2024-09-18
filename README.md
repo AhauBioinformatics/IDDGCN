@@ -54,7 +54,7 @@ python ground_truth.py
 cd explanation
 python GnnExplainer.py
 python explaiNE.py
-python WGnnExplainer.py
+python IDDGCN_explain.py
 ```
 5. **Explanation Model Evaluation**: Run `eval_test.py` in the `explanation` folder to evaluate the explanation models.  
 ```markdown
